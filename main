@@ -51,9 +51,9 @@ def wait_for_internet_connection():
 
 # Button A - Runs a QR code example
 @buttonshim.on_release(buttonshim.BUTTON_A)
-def button_a(button, pressed):
-    buttonflash()
-    runprocess("/home/pi/Pimoroni/inkyphat/examples/qr.py red 'http://www.electromaker.io'")
+#def button_a(button, pressed):
+#    buttonflash()
+#    runprocess("/home/pi/Pimoroni/inkyphat/examples/qr.py red 'http://www.electromaker.io'")
 
 # Button B - runs home weather script after weather example
 @buttonshim.on_release(buttonshim.BUTTON_B)
@@ -64,13 +64,13 @@ def button_b(button, pressed):
 
 # Button C - runs the weather - IP - time/date and system info splash screen - updates every 10 minutes
 @buttonshim.on_release(buttonshim.BUTTON_C)
-def button_c(button, pressed):
-    buttonflash()
-    # Refresh it every 600 seconds to stop loop must restart service process - hold button A
-    starttime=time.time()
-    while True:
-        runprocess("/home/pi/scripts/phat/info.py")
-        time.sleep(600.0 - ((time.time() - starttime) % 600.0))
+#def button_c(button, pressed):
+#    buttonflash()
+#    # Refresh it every 600 seconds to stop loop must restart service process - hold button A
+#    starttime=time.time()
+#    while True:
+#        runprocess("/home/pi/scripts/phat/info.py")
+#        time.sleep(600.0 - ((time.time() - starttime) % 600.0))
 
 # Button D - Runs a image display example
 @buttonshim.on_release(buttonshim.BUTTON_D)
@@ -104,21 +104,3 @@ def button_b_hold(button):
 def button_c_hold(button):
     flash_led(0.05, 3, 255, 0, 0)
     os.system('sudo shutdown -h now')
-
-
-# Run initial python script info.py when internet connection established
-wait_for_internet_connection()
-
-signal.pause()
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
